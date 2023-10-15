@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Getter
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
 public class TrackOrderResponse {
     @NotNull
     private final UUID orderTrackingId;
     @NotNull
     private final OrderStatus orderStatus;
-    private final List<String> failureMessage;
+    private final List<String> failureMessages;
 }

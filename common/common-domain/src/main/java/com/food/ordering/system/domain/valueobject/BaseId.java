@@ -8,6 +8,7 @@ public abstract class BaseId<T> {
     protected BaseId(T value) {
         this.value = value;
     }
+
     public T getValue() {
         return value;
     }
@@ -17,7 +18,7 @@ public abstract class BaseId<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BaseId<?> baseId = (BaseId<?>) o;
-        return Objects.equals(value, baseId.value);
+        return value.equals(baseId.value);
     }
 
     @Override

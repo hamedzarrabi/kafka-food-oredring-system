@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@Builder
 @Getter
+@Builder
 @AllArgsConstructor
 public class CreateOrderCommand {
     @NotNull

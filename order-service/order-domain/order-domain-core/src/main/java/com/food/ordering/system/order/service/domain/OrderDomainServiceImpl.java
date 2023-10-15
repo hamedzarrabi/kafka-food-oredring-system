@@ -31,7 +31,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     @Override
     public OrderPaidEvent payOrder(Order order) {
         order.pay();
-        log.info("Order with is: {} is paid", order.getId().getValue());
+        log.info("Order with id: {} is paid", order.getId().getValue());
         return new OrderPaidEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
@@ -42,15 +42,15 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     }
 
     @Override
-    public OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessage) {
-        order.initCancel(failureMessage);
-        log.info("Order payment is cancelling  for order id: {}", order.getId().getValue());
+    public OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessages) {
+        order.initCancel(failureMessages);
+        log.info("Order payment is cancelling for order id: {}", order.getId().getValue());
         return new OrderCancelledEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     @Override
-    public void cancelOrder(Order order, List<String> failureMessage) {
-        order.cancel(failureMessage);
+    public void cancelOrder(Order order, List<String> failureMessages) {
+        order.cancel(failureMessages);
         log.info("Order with id: {} is cancelled", order.getId().getValue());
     }
 
